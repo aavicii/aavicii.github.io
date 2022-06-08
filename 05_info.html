@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+      window.onload = () => renderInfo();
+      </script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/info.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@1,900&display=swap" 
+          rel="stylesheet">
+    <title>Nav bar</title>
+    <script src="https://kit.fontawesome.com/bb09f47781.js" 
+    crossorigin="anonymous"></script>
+    <script src="js/nav.js" defer></script>
+</head>
+<body style="background: #f5f5f5;">
+    <nav class="navbar">
+        <div class="navbar__logo">
+            <i class="fa-solid fa-code"></i>
+            <a href="">Project</a>
+        </div>
+        <ul class="navbar__menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="introduce.html">introduce</a></li>
+            <li><a href="02_favorite.html">favorite</a></li>
+            <li><a href="03_roadmap.html">roadmap</a></li>
+            <li><a href="04_enroll.html">enroll</a></li>
+            <li><a href="05_info.html">info</a></li>
+        </ul>
+        <ul class="navbar__icons">
+            <li><i class="fa-brands fa-facebook"></i></li>
+            <li><i class="fa-brands fa-instagram"></i></li>
+        </ul>
+    
+        <a href="#" class="navbar__toogleBtn">
+            <i class="fa-solid fa-bars"></i>
+        </a>
+    </nav>
+    <nav>
+        <div class="nav_bar">
+            <p class="title">회원정보</p>
+        </div>
+    </nav>
+  <table id="tb-info">
+    <thead>
+      <tr>
+        <th >No</th>
+        <th>아이디</th>
+        <th>비밀번호</th>
+        <th>이름</th>
+        <th>이메일</th>
+        <th>전화번호</th>
+        <th>주민번호</th>
+        <th>가입날짜</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+    <script>      
+        const renderInfo = (infos = JSON.parse(localStorage.getItem("infos"))) => {
+          if(!infos) return;
+          const tbody = document.querySelector("#tb-info tbody");
+          tbody.innerHTML = "";
+          infos
+            .map((info, index) => {
+              const {userid, userpwd, username, email, phone, ssn, datetime} = info;
+              return `<tr>
+                <td>${index + 1}</td>
+                <td>${userid}</td>
+                <td>${userpwd}</td>
+                <td>${username}</td>
+                <td>${email}</td>
+                <td>${phone}</td>
+                <td>${ssn}</td>
+                <td>${datetimeFormatter(datetime)}</td>
+              </tr>`;
+            })
+            .forEach((tr) => {
+              tbody.innerHTML += tr;
+            });
+        }
+      
+        const datetimeFormatter = (millis) => {
+          const d = new Date(millis);
+          const f = (n) => n < 10 ? '0' + n : n;
+          const yyyy = d.getFullYear();
+          const mm = f(d.getMonth() + 1);
+          const dd = f(d.getDate());
+          const hh = f(d.getHours());
+          const mi = f(d.getMinutes());
+          return `${yyyy}/${mm}/${dd} ${hh}:${mi}`;
+        };
+    </script>
+</body>
+</html>

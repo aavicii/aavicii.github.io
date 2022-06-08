@@ -1,0 +1,75 @@
+
+*{font-family: 'Do Hyeon', sans-serif;}
+.nav_bar{
+    color: black;
+    background-color: white;
+    width: 100%;
+    height: 120px;
+    line-height: 56px;
+    text-align: center;
+    height: 100%;
+}
+.title{
+    position: relative;
+    font-size: 3rem;
+    padding: 30px;
+    font-weight: bold;
+}
+body{
+    background-color: #eee;
+}
+#window4 {
+    background-color: #eee;
+  }
+
+  .tmicontainer {
+    display: flex;
+    margin-top: 130px;
+  }
+  .tmilist {
+    flex: 1;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+  .tmilist p {
+    font-weight: 400;
+    color: black;
+    font-size: 25px;
+    line-height: 5.5;
+  }
+  .tmilist p:hover {
+    font-size: 0;
+  }
+  .tmilist p:hover::before {
+    font-size: 25px;
+    font-weight: bold;
+    color: #d49466;
+  }
+  .tmilist #tmi1:hover:before {
+    content: 'React.js';
+  }
+  .tmilist #tmi2:hover:before {
+    content: 'Java';
+  }
+  .tmilist #tmi3:hover:before {
+    content: 'GitHub';
+  }
+  .tmilist #tmi4:hover:before {
+    content: 'Oracle,MongoDB';
+  }
+  .tmilist #tmi5:hover:before {
+    content: 'JSON,REST';
+  }
+  .tmilist #tmi6:hover:before {
+    content: 'Apache';
+  }
+  .tmilist #tmi7:hover:before {
+    content: 'Spring';
+  }
+  .tmilist #tmi8:hover:before {
+    content: 'Typescript';
+  }
+  .tmilist #tmi9:hover:before {
+    content: 'Docker';
+  }
